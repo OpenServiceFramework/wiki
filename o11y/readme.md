@@ -4,21 +4,19 @@
 
 Definition of o11y varies by vendor. Here's our take on o11y:
 
-> Google: Observability is tooling or a technical solution that allows teams to actively debug their system. Observability is based on exploring properties and patterns not defined in advance.
+> **Google**: Observability is tooling or a technical solution that allows teams to actively debug their system. Observability is based on exploring properties and patterns not defined in advance.
 >
-> OpenTelemetry: Observability lets us understand a system from the outside, by letting us ask questions about that system without knowing its inner workings. Furthermore, it allows us to easily troubleshoot and handle novel problems (i.e. “unknown unknowns”), and helps us answer the question, “Why is this happening?”
-
-O11y relies on these types of telemetry data: metrics, traces & logs (MTL).
-
-> OpenServiceFramework (OSF) will be using OpenTelemetry standards, framework & tools
+> **OpenTelemetry**: Observability lets us understand a system from the outside, by letting us ask questions about that system without knowing its inner workings. Furthermore, it allows us to easily troubleshoot and handle novel problems (i.e. “unknown unknowns”), and helps us answer the question, “Why is this happening?”
+>
+> **Telemetry** refers to data emitted from a system, about its behavior. The data can come in the form of [metrics](#reliability--metrics), [traces](#distributed-traces) & [logs](#logs) (MTL).
+>
+> **OpenServiceFramework** (OSF) will be using **OpenTelemetry** standards, framework & tools
 
 ## OpenTelemetry
 
-OpenTelemetry (OTel) is a vendor-neutral open-source Observability framework for instrumenting, generating, collecting, and exporting telemetry data such as traces, metrics, logs. As an industry-standard it is natively supported by a number of vendors.
+**OpenTelemetry** (OTel) is a vendor-neutral open-source Observability framework for instrumenting, generating, collecting, and exporting telemetry data. As an industry-standard it is natively supported by a number of vendors.
 
 ## Reliability & Metrics
-
-**Telemetry** refers to data emitted from a system, about its behavior. The data can come in the form of Traces, Metrics, and Logs.
 
 **Reliability** answers the question: “Is the service doing what users expect it to be doing?” A system could be up 100% of the time, but if, when a user clicks “Add to Cart” to add a black pair of pants to their shopping cart, and instead, the system keeps adding a red pair of pants, then the system would be said to be unreliable.
 
@@ -30,15 +28,15 @@ OpenTelemetry (OTel) is a vendor-neutral open-source Observability framework for
 
 ## Understanding Distributed Tracing
 
-To understand Distributed Tracing, let’s start with some basics.
+To understand **Distributed Tracing**, let’s start with some basics.
 
 ### Logs
 
-A **Log** is a timestamped message emitted by services or other components. Unlike [Traces](), however, they are not necessarily associated with any particular user request or transaction. They are found almost everywhere in software, and have been heavily relied on in the past by both developers and operators alike to help them understand system behavior.
+A **Log** is a timestamped message emitted by services or other components. Unlike [Traces](#distributed-traces), however, they are not necessarily associated with any particular user request or transaction. They are found almost everywhere in software, and have been heavily relied on in the past by both developers and operators alike to help them understand system behavior.
 
 Sample Log:
 
-```
+```text
 I, [2021-02-23T13:26:23.505892 #22473]  INFO -- : [6459ffe1-ea53-4044-aaa3-bf902868f730] Started GET "/" for ::1 at 2021-02-23 13:26:23 -0800
 ```
 
@@ -88,7 +86,7 @@ Many Observability back-ends visualize Traces as waterfall diagrams that may loo
 
 ## Instrumenting
 
-In order to make a system observable, it must be instrumented: That is, code from the system’s components must emit traces, metrics, and logs.
+In order to make a system observable, it must be instrumented: That is, code from the system’s components must emit [metrics](#reliability--metrics), [traces](#distributed-traces) & [logs](#logs)
 
 Without being required to modify the source code you can collect telemetry from an application using [Automatic Instrumentation](https://opentelemetry.io/docs/reference/specification/glossary/#automatic-instrumentation). If you previously used an APM agent to extract telemetry from your application, Automatic Instrumentation will give you a similar out of the box experience.
 
