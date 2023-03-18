@@ -4,13 +4,15 @@
 
 Definition of o11y varies by vendor. Here's our take on o11y:
 
+---
 > **Google**: Observability is tooling or a technical solution that allows teams to actively debug their system. Observability is based on exploring properties and patterns not defined in advance.
->
+---
 > **OpenTelemetry**: Observability lets us understand a system from the outside, by letting us ask questions about that system without knowing its inner workings. Furthermore, it allows us to easily troubleshoot and handle novel problems (i.e. “unknown unknowns”), and helps us answer the question, “Why is this happening?”
->
+---
 > **Telemetry** refers to data emitted from a system, about its behavior. The data can come in the form of [metrics](#reliability--metrics), [traces](#distributed-traces) & [logs](#logs) (MTL).
 >
 > **OpenServiceFramework** (OSF) will be using **OpenTelemetry** standards, framework & tools
+---
 
 ## OpenTelemetry
 
