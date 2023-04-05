@@ -7,6 +7,7 @@ Application logging is one of the most important things you can do in your code 
 So what are logging levels?
 
 Well, put as simply as possible, they’re simply a means of categorizing the entries in your log file.  But they categorize in a very specific way—by urgency or severity.  At a glance, the logging level lets you separate the following kinds of information:
+
 - Hey, someone might find this interesting: we just got our fourth user named Bill.
 - OH NO SOMEONE GET A FIRE EXTINGUISHER SERIOUSLY RIGHT NOW.
 
@@ -47,32 +48,39 @@ Of course, you don’t have completely uniform names for the levels across all l
 So what are these logging levels?  Here are some common ones that you’ll see, listed in order from most severe to least severe, and followed up by some that are meta-considerations.  When logging from your application, follow these guidelines:
 
 ## FATAL
+
 Fatal represents truly catastrophic situations, as far as your application is concerned.  Your application is about to abort to prevent some kind of corruption or serious problem, if possible.  This entry in the log should probably result in someone getting a 3 AM phone call.
 
 ## ERROR
+
 An error is a serious issue and represents the failure of something important going on in your application.  Unlike FATAL, the application itself isn’t going down the tubes.  Here you’ve got something like dropped database connections or the inability to access a file or service.  This will require someone’s attention probably sooner than later, but the application can limp along.
 
 ## WARN
+
 Now we’re getting into the grayer area of hypotheticals.  You use the WARN log level to indicate that you might have a problem and that you’ve detected an unusual situation.  Maybe you were trying to invoke a service and it failed a couple of times before connecting on an automatic retry.  It’s unexpected and unusual, but no real harm done, and it’s not known whether the issue will persist or recur.  Someone should investigate warnings.
 
 ## INFO
+
 Finally, we can dial down the stress level.  INFO messages correspond to normal application behavior and milestones.  You probably won’t care too much about these entries during normal operations, but they provide the skeleton of what happened.  A service started or stopped.  You added a new user to the database.  That sort of thing.
 
 ## DEBUG
+
 With DEBUG, you start to include more granular, diagnostic information.  Here, you’re probably getting into “noisy” territory and furnishing more information than you’d want in normal production situations.  You’re providing detailed diagnostic information for fellow developers, sysadmins, etc.
 
 ## TRACE
+
 This is really fine-grained information—finer even than DEBUG.  When you’re at this level, you’re basically looking to capture every detail you possibly can about the application’s behavior.  This is likely to swamp your resources in production and is seriously diagnostic.
 
 ## How This Works: the Dance of Log Requests
 
 At this point, you might be wondering how all this happens between the log file and the application.  Well, simply put, there are two participating parties in logging:
+
 - The logging framework, at runtime, has a configured log level.
 - The application code makes logging requests.
 
 If the framework has a given log level enabled, then all requests at that level or higher priority wind up in the log platform.  Everything else is denied.  So consider the following pseudo-code:
 
-```
+```javascript
 void DoStuffWithInts(int x, int y) {
     log.trace(x);
     log.error(y);
@@ -86,5 +94,7 @@ If we had the log level set to ALL or TRACE, you would see both integers in the 
 When it comes to logging levels, though, I’ll close with one last bit of advice.  Use them liberally in your application, erring on the side of providing too much information (but in the lower levels, like DEBUG or TRACE).  This gives you the option of tuning the log level and making adjustments down the road.  If you err on the side of leaving them out, there’s no production setting that can magically include them.  And giving yourself options in production is the name of the game.
 
 ***
-#### Reference:
-- <https://www.sentinelone.com/blog/logging-levels/>
+
+### References
+
+- [Sentinelone: Logging Levels](https://www.sentinelone.com/blog/logging-levels)

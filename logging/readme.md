@@ -41,7 +41,6 @@ We have provisioned for the following logging levels in the OSF logging library
 - DEBUG
 - TRACE
 
-
 ## 4. Include the Stack Trace When Logging an Exception
 
 This section should be short since its title pretty much says everything there is to it. When logging an exception, you should always include its stack trace. For the developer performing a post-mortem debug, the stack trace is essential information that will help them connect the dots.
@@ -59,5 +58,8 @@ However, it’s not enough just to have logging in place. Getting started with l
 By having logs that are easy for humans to read, you make post-mortem debug less of a burden for you and your fellow developers. Log formatting represents a win for everyone, so start employing it ASAP.
 
 ***
-#### Reference:
-- <https://www.sentinelone.com/blog/log-formatting-best-practices-readable/>
+
+### References
+
+- [GCP: Structure Logging](https://cloud.google.com/logging/docs/structured-logging)
+- [Sentinelone: Log Formatting Best Practices](https://www.sentinelone.com/blog/log-formatting-best-practices-readable)
