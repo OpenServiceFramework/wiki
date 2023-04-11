@@ -86,7 +86,7 @@ A Trace is made of one or more Spans. The first Span represents the Root Span. E
 
 Many Observability back-ends visualize Traces as waterfall diagrams that may look something like this:
 
-![Distributed Traces](waterfall_trace.png)
+![Distributed Traces](../images/waterfall_trace.png)
 
 ## Instrumenting
 
