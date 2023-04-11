@@ -36,6 +36,8 @@ To understand **Distributed Tracing**, let’s start with some basics.
 
 A **Log** is a timestamped message emitted by services or other components. Unlike [Traces](#distributed-traces), however, they are not necessarily associated with any particular user request or transaction. They are found almost everywhere in software, and have been heavily relied on in the past by both developers and operators alike to help them understand system behavior.
 
+> More details: [Logging Best Practices](logging.md)
+
 Sample Log:
 
 ```text
